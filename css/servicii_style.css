@@ -1,0 +1,75 @@
+.service-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;  /* Permite imaginii să se alinieze pe rânduri */
+            justify-content: space-around;
+        }
+        .service {
+            position: relative;
+            width: 280px;  /* Lărgim imaginea pentru a o face mai mică pe ecrane mici */
+            border: 3px solid white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;  /* Spațiu între imagini */
+        }
+        .service img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .service:hover img {
+            transform: scale(1.1);
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;  /* Overlay-ul acoperă partea de jos a imaginii */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        }
+        .text {
+            position: absolute;
+            bottom: 0;
+            left: 15px;
+            font-size: 18px;  /* Dimensiune text mai mică pe ecrane mici */
+            font-weight: bold;
+            text-transform: capitalize;
+            color: white;
+            padding: 10px;
+        }
+        @media (max-width: 1024px) {
+            .service-container {
+                flex-wrap: wrap;
+            }
+        }
+        @media (max-width: 768px) {
+            .service-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .service {
+                width: 260px;  /* Ajustează lățimea pe ecrane mici */
+            }
+            .text {
+                font-size: 16px;  /* Reducerea dimensiunii textului pe dispozitive mai mici */
+            }
+        }
+        /* Pentru ecrane mai mici de 320px */
+        @media (max-width: 320px) {
+            .service-container {
+                padding: 10px;  /* Redu dimensiunea padding-ului pentru a face mai mult loc */
+                gap: 10px;  /* Reducerea spațiului dintre imagini */
+            }
+            .service {
+                width: 100%;  /* Face serviciile să ocupe întreaga lățime a ecranului */
+                margin-bottom: 10px;  /* Reducerea spațiului dintre imagini */
+            }
+            .text {
+                font-size: 14px;  /* Reducerea dimensiunii textului pentru ecrane foarte mici */
+                padding: 8px;  /* Micșorarea padding-ului */
+            }
+        }

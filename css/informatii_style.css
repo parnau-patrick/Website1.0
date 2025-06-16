@@ -1,0 +1,90 @@
+
+        /* General container */
+        .informatii-container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px 15px;
+        }
+        .informatii-section {
+            padding: 2rem 0;
+            border-bottom: 1px solid #333;
+        }
+        .informatii-section:last-child {
+            border-bottom: none;
+        }
+        .informatii-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .informatii-title {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        .informatii-subtitle {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        .informatii-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: #d0d0d0;
+        }
+        .informatii-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .informatii-list li {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            padding-left: 20px;
+            position: relative;
+            color: #c0c0c0;
+        }
+        .informatii-list li::before {
+            content: '♦️';
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+        }
+        .informatii-strong {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .informatii-title {
+                font-size: 2rem;
+            }
+            .informatii-subtitle {
+                font-size: 1.6rem;
+            }
+            .informatii-text,
+            .informatii-list li {
+                font-size: 1rem;
+            }
+            .informatii-container {
+                width: 95%;
+            }
+        }
+        @media (max-width: 480px) {
+            .informatii-title {
+                font-size: 1.8rem;
+            }
+            .informatii-subtitle {
+                font-size: 1.4rem;
+            }
+            .informatii-text,
+            .informatii-list li {
+                font-size: 0.95rem;
+            }
+            .informatii-container {
+                width: 100%;
+                padding: 0 15px;
+            }
+        }

@@ -1,0 +1,90 @@
+.academia-container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px 15px;
+        }
+        .academia-header {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #1e1e1e;
+            border-bottom: 1px solid #333;
+        }
+        .academia-header h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .academia-header p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .academia-section h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        .academia-section p {
+            font-size: 1.1rem;
+            color: #d0d0d0;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .academia-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        .academia-list li {
+            font-size: 1.1rem;
+            color: #c0c0c0;
+            margin-bottom: 0.75rem;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .academia-list li::before {
+            content: '♦️';
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+        }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .academia-header h1 {
+                font-size: 2rem;
+            }
+            .academia-section h2 {
+                font-size: 1.6rem;
+            }
+            .academia-header p,
+            .academia-section p,
+            .academia-list li {
+                font-size: 1rem;
+            }
+            .academia-container {
+                width: 95%;
+            }
+        }
+        @media (max-width: 480px) {
+            .academia-header h1 {
+                font-size: 1.8rem;
+            }
+            .academia-section h2 {
+                font-size: 1.4rem;
+            }
+            .academia-header p,
+            .academia-section p,
+            .academia-list li {
+                font-size: 0.95rem;
+            }
+            .academia-container {
+                width: 100%;
+                padding: 0 15px;
+            }
+        }
