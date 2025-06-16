@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/admin-dashboard_style.css">
+    <title>Dashboard Admin</title>
+    <div class="admin-actions">
+    <button class="block-date-btn" id="blockDateBtn">
+        📅 Blochează Dată
+    </button>
+    <button class="view-blocked-btn" id="viewBlockedDatesBtn">
+        👁️ Vezi Date Blocate
+    </button>
+    <button class="cleanup-btn" id="manualCleanupBtn">
+        🧹 Curățare Manuală
+    </button>
+</div>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Dashboard Rezervări</h1>
+            <button class="logout-btn" id="logoutBtn">Deconectare</button>
+        </div>
+        
+        <div class="tables-container">
+            <!-- Rezervări în Așteptare -->
+            <div class="table-wrapper">
+                <h2>Rezervări în Așteptare</h2>
+                <div class="date-actions">
+                    <button class="refresh-btn" id="refreshPendingBtn">
+                        Actualizează
+                    </button>
+                </div>
+
+                <div class="cards-container" id="pendingReservationsCards">
+                    <!-- Cards will be added dynamically -->
+                </div>
+            </div>
+            
+            <!-- Rezervări Confirmate -->
+            <div class="table-wrapper">
+                <h2>Rezervări Confirmate</h2>
+                <div class="date-picker">
+                    <label for="datePicker">Alege o dată:</label>
+                    <input type="date" id="datePicker">
+                </div>
+                <div class="date-actions">
+                    <button class="today-btn" id="todayBtn">Astăzi</button>
+                    <button class="refresh-btn" id="refreshConfirmedBtn">
+                        Actualizează
+                    </button>
+                </div>
+
+                <div class="cards-container" id="confirmedReservationsCards">
+                    <!-- Cards will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Beautiful Block Reason Popup -->
+    <div class="block-popup" id="blockPopup">
+        <div class="block-popup-content">
+            <button class="block-popup-close" id="blockPopupClose">&times;</button>
+            
+            <div class="block-popup-header">
+                <div class="block-popup-icon">🚫</div>
+                <h3>Blochează Utilizatorul</h3>
+            </div>
+            
+            <p class="block-popup-subtitle">
+                Introdu motivul pentru care dorești să blochezi acest utilizator. Acesta nu va mai putea face rezervări în viitor.
+            </p>
+            
+            <textarea 
+                class="block-reason-input" 
+                id="blockReasonInput" 
+                placeholder="Exemplu: Comportament nepotrivit, nu s-a prezentat la programare, alte motive..."
+                maxlength="500"
+            ></textarea>
+            
+            <div class="block-popup-actions">
+                <button class="popup-btn popup-btn-cancel" id="blockCancelBtn">Anulează</button>
+                <button class="popup-btn popup-btn-block" id="blockConfirmBtn">Blochează Utilizatorul</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/admin-dashboard_script.js"></script>
+  <!-- Popup pentru blocarea datelor -->
+<div class="block-date-popup" id="blockDatePopup">
+    <div class="block-date-popup-content">
+        <button class="block-date-popup-close" id="blockDateClose">&times;</button>
+        
+        <div class="block-date-popup-header">
+            <div class="block-date-popup-icon">📅</div>
+            <h3>Blochează Dată</h3>
+        </div>
+        
+        <div class="form-group">
+            <label for="blockDateInput">Selectează Data:</label>
+            <input type="date" id="blockDateInput" required>
+        </div>
+        
+        <div class="checkbox-group">
+            <input type="checkbox" id="fullDayBlock" checked>
+            <label for="fullDayBlock">Blochează toată ziua</label>
+        </div>
+        
+        <div class="hours-selection" id="hoursSelection" style="display: none;">
+            <label>Selectează orele de blocat:</label>
+            <div class="hours-container" id="hoursContainer">
+                <!-- Orele vor fi generate dinamic -->
+            </div>
+        </div>
+        
+        <div class="block-date-popup-actions">
+            <button class="popup-btn popup-btn-cancel" id="blockDateCancel">Anulează</button>
+            <button class="popup-btn popup-btn-confirm" id="blockDateConfirm">Confirmă Blocarea</button>
+        </div>
+    </div>
+</div>
+
+<!-- Popup pentru vizualizarea datelor blocate -->
+<div class="block-date-popup" id="viewBlockedDatesPopup">
+    <div class="block-date-popup-content">
+        <button class="block-date-popup-close" id="viewBlockedClose">&times;</button>
+        
+        <div class="block-date-popup-header">
+            <div class="block-date-popup-icon">👁️</div>
+            <h3>Date Blocate</h3>
+        </div>
+        
+        <div id="blockedDatesContent">
+            <!-- Conținutul va fi populat dinamic -->
+        </div>
+        
+        <div class="block-date-popup-actions">
+            <button class="popup-btn popup-btn-cancel" id="viewBlockedCancel">Închide</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

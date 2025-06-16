@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    container_name: barbershop_backend
+    env_file:
+      - backend/.env
+    ports:
+      - "5000:5000"
+    networks:
+      - barbershop-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    container_name: barbershop_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - barbershop-network
+    restart: unless-stopped
+
+networks:
+  barbershop-network:
+    driver: bridge
